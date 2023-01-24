@@ -35,6 +35,11 @@ type ISummary struct {
 
 // IType renders podcast.Type
 type IType struct {
-	XMLName xml.Name      `xml:"itunes:type"`
-	Type    EnclosureType `xml:"-"`
+	XMLName xml.Name `xml:"itunes:type"`
+	Type    string   `xml:"-"`
+}
+
+type IEpisodeType struct {
+	XMLName xml.Name `xml:"itunes:episodeType"`
+	Type    string   `xml:"-"`
 }

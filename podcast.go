@@ -326,33 +326,32 @@ func (p *Podcast) AddImage(url string) {
 //
 // Article minimal requirements are:
 //
-//   * Title
-//   * Description
-//   * Link
+//   - Title
+//   - Description
+//   - Link
 //
 // Audio, Video and Downloads minimal requirements are:
 //
-//   * Title
-//   * Description
-//   * Enclosure (HREF, Type and Length all required)
+//   - Title
+//   - Description
+//   - Enclosure (HREF, Type and Length all required)
 //
 // The following fields are always overwritten (don't set them):
 //
-//   * GUID
-//   * PubDateFormatted
-//   * AuthorFormatted
-//   * Enclosure.TypeFormatted
-//   * Enclosure.LengthFormatted
+//   - GUID
+//   - PubDateFormatted
+//   - AuthorFormatted
+//   - Enclosure.TypeFormatted
+//   - Enclosure.LengthFormatted
 //
 // Recommendations:
 //
-//   * Just set the minimal fields: the rest get set for you.
-//   * Always set an Enclosure.Length, to be nice to your downloaders.
-//   * Follow Apple's best practices to enrich your podcasts:
+//   - Just set the minimal fields: the rest get set for you.
+//   - Always set an Enclosure.Length, to be nice to your downloaders.
+//   - Follow Apple's best practices to enrich your podcasts:
 //     https://help.apple.com/itc/podcasts_connect/#/itc2b3780e76
-//   * For specifications of itunes tags, see:
+//   - For specifications of itunes tags, see:
 //     https://help.apple.com/itc/podcasts_connect/#/itcb54353390
-//
 func (p *Podcast) AddItem(i Item) (int, error) {
 	// initial guards for required fields
 	if len(i.Title) == 0 || len(i.Description.Text) == 0 {
@@ -493,6 +492,7 @@ func (p *Podcast) AddType(t *PodcastType) {
 	// For new subscribers, Apple Podcasts adds the first episode to their
 	// Library, or the entire current season if using seasons.
 
+	p.IType = &IType{Type: t.String()}
 }
 
 // Bytes returns an encoded []byte slice.

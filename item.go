@@ -219,7 +219,7 @@ func (i *Item) AddEpisode() {
 	// to a specific episode
 	//
 
-	i.IEpisodeType = &EpisodeType{}
+	i.IEpisodeType = &IEpisodeType{}
 }
 
 // AddImage adds the image as an iTunes-only IImage.  RSS 2.0 does not have
